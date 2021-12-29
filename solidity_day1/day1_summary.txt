@@ -1,0 +1,46 @@
+1. 솔리디티(solidity)에서는 이벤트가 발생한다. 이벤트를 통해 블록 및 트랜잭션에서 발생한 '내용'을 쿼리할 수 있다.
+
+2. 솔리디티 이벤트를 통해 다음과 같은 사안들을 수행할 수 있다.
+  a. 특정 변수에 스마트 컨트랙트를 테스트
+  b. 저장 상태를 재구축하기 위해 변수를 인덱싱
+  c. 프론트 엔드(front end)를 바꾸기 위해 이벤트를 수신(listen)
+  d. 하위 그래프(subgraph)를 만들어서 데이터를 더 빠르게 읽기
+  
+3. 정의한 이벤트의 예시
+event storedNumber (    //storedNumber라는 이벤트를 구축
+  uint256 indexed oldNumber,   //인덱스된 매개변수 혹은 topics
+  uint256 indexed newNumber,
+  uint256 addedNumber,    //인덱스 되지 않은 매개변수
+  address sender
+);
+
+
+더 긴 예시 
+
+pragma solidity ^0.8.7;
+
+contract SimpleStorage {
+  uint256 favoriteNumber;
+  
+  event storedNumber(
+    uint256 indexed oldNumber,
+    uint256 indexed newNumber,
+    uint256 addedNumber,
+    address sender
+  );
+  
+  function store(uint256 _favoriteNumber) public {
+    emit storeNumber(
+      favoriteNumber,
+      _favoriteNumber,
+      _favoriteNumber + favoriteNumber,
+      msg.sender
+    );
+    favoriteNumber = _favoriteNumber;
+  }
+  
+  function retrieve() public view returns (uint256) {
+    return favoriteNumber;
+  }
+}
+    
