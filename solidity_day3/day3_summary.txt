@@ -1,0 +1,8 @@
+https://blog.naver.com/tundler/222609434431
+블로그 글 참조
+
+1. struct
+
+2. Array
+
+3. Mapping
