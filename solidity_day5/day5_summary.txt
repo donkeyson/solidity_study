@@ -1,0 +1,29 @@
+1. 스마트 컨트랙트: 애플리케이션의 백엔드에 해당. 블록체인과 연결됨.
+
+2. Pragma는 솔리디티의 버전을 의미한다.
+
+3. State Varibales는 변수 선언부에 해당한다.
+ex) uint8 public decimals = 18;
+
+4. mapping은 키와 값의 쌍으로 이루어진 해시 테이블. 
+ex) mapping (address => uint256) public balanceOf;
+*address는 키. uint256은 값의 형태. 
+
+5. functions 생성자.
+
+6. 함수에서 키워드를 통해 가시성을 설정할 수 있다. 
+public = 컨트랙트 내, 외부 모두 공개되는 함수
+private = 컨트랙트에 계약된 계정에만 공개되는 함수
+external = 게약 외부에만 공개된느 함수
+internal = 해당 컨트랙트와 컨트랙트를 상속한 하위 컨트랙트에 공개되는 함수
+
+7. 함수 뒤에 constant, view, pure가 붙는 함수들도 있다.
+constant = 해당 함수는 블록체인의 상태를 변경시키지 않는다. 상태변수 조회 용도.
+view = constant를 대체
+pure = 블록체인 상태 변경x, 조회x 
+
+8. 함수 뒤에 payable을 붙여야만 이더리움 전송 기능을 수행할 수 있다.
+
+9. modifier는 함수 실행전에 검토할 조건을 지정한다. 
+
+10. events는 컨트랙트 내부에서 상태 변화가 발생했을 때 클라이언트에서 변화 내용을 전달하는 역할을 수행한다.
